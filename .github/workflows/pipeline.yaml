@@ -201,6 +201,9 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           # trigger the integration tests here
+          echo 'Running integration tests'
+          pip3 install pytest pytest-mock
+          python3 -m pytest tests/integration
 
   deploy-prod:
     if: github.ref == 'refs/heads/master'
